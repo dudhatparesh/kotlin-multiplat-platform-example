@@ -1,0 +1,4 @@
+rootProject.name = 'kotlin-multiplat-platform-example'
+
+
+enableFeaturePreview('GRADLE_METADATA')
