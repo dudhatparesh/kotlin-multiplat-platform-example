@@ -1,0 +1,6 @@
+framework module kotlin_multiplat_platform_example {
+    umbrella header "kotlin_multiplat_platform_example.h"
+
+    export *
+    module * { export * }
+}
