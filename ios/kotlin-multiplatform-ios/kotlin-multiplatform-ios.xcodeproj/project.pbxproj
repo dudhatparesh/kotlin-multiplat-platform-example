@@ -15,6 +15,8 @@
 		6CECD76F23A7E5510094BB95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CECD76D23A7E5510094BB95 /* LaunchScreen.storyboard */; };
 		6CECD77A23A7E5510094BB95 /* kotlin_multiplatform_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CECD77923A7E5510094BB95 /* kotlin_multiplatform_iosTests.swift */; };
 		6CECD78523A7E5510094BB95 /* kotlin_multiplatform_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CECD78423A7E5510094BB95 /* kotlin_multiplatform_iosUITests.swift */; };
+		6CECD79423A7E58B0094BB95 /* kotlin_multiplat_platform_example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CECD79323A7E58B0094BB95 /* kotlin_multiplat_platform_example.framework */; };
+		6CECD79523A7E58B0094BB95 /* kotlin_multiplat_platform_example.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6CECD79323A7E58B0094BB95 /* kotlin_multiplat_platform_example.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6CECD79623A7E58B0094BB95 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6CECD79523A7E58B0094BB95 /* kotlin_multiplat_platform_example.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		6CECD75F23A7E5500094BB95 /* kotlin-multiplatform-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kotlin-multiplatform-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CECD76223A7E5500094BB95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +65,7 @@
 		6CECD78023A7E5510094BB95 /* kotlin-multiplatform-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "kotlin-multiplatform-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CECD78423A7E5510094BB95 /* kotlin_multiplatform_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kotlin_multiplatform_iosUITests.swift; sourceTree = "<group>"; };
 		6CECD78623A7E5510094BB95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6CECD79323A7E58B0094BB95 /* kotlin_multiplat_platform_example.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = kotlin_multiplat_platform_example.framework; path = "kotlin-multiplatform-ios/kotlin/ios/debugFramework/kotlin_multiplat_platform_example.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CECD79423A7E58B0094BB95 /* kotlin_multiplat_platform_example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +101,7 @@
 				6CECD77823A7E5510094BB95 /* kotlin-multiplatform-iosTests */,
 				6CECD78323A7E5510094BB95 /* kotlin-multiplatform-iosUITests */,
 				6CECD76023A7E5500094BB95 /* Products */,
+				6CECD79223A7E58B0094BB95 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +147,14 @@
 			path = "kotlin-multiplatform-iosUITests";
 			sourceTree = "<group>";
 		};
+		6CECD79223A7E58B0094BB95 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6CECD79323A7E58B0094BB95 /* kotlin_multiplat_platform_example.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +165,7 @@
 				6CECD75B23A7E5500094BB95 /* Sources */,
 				6CECD75C23A7E5500094BB95 /* Frameworks */,
 				6CECD75D23A7E5500094BB95 /* Resources */,
+				6CECD79623A7E58B0094BB95 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -435,6 +463,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/kotlin-multiplatform-ios/kotlin/ios/debugFramework",
+				);
 				INFOPLIST_FILE = "kotlin-multiplatform-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -452,6 +484,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/kotlin-multiplatform-ios/kotlin/ios/releaseFramework",
+				);
 				INFOPLIST_FILE = "kotlin-multiplatform-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
