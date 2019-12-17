@@ -9,14 +9,14 @@ import kotlinx.serialization.UnstableDefault
 class GithubApiClientImpl(dispatchers: AppDispatchers) : ApiClient(dispatchers), GithubApiClient {
     override suspend fun fetchUserWithoutTimeout(): User {
         val url = "https://api.github.com/users/mojombo"
-        return onNetworkWithoutTimeOut {
+        return onNetworkWithoutTimeOut(url) {
             httpClient(true).get<User>(url)
         }
     }
 
     override suspend fun fetchUserWithTimeout(timeoutInMillis: Long): User {
         val url = "https://api.github.com/users/mojombo"
-        return onNetworkWithTimeOut(timeoutInMillis) {
+        return onNetworkWithTimeOut(url, timeoutInMillis) {
             httpClient(true).get<User>(url)
         }
     }

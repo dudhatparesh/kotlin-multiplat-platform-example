@@ -24,18 +24,21 @@ import kotlinx.serialization.json.Json
 open class ApiClient(
     val dispatchers: AppDispatchers
 ) {
-    suspend fun <T> onNetworkWithTimeOut(timeoutInMillis: Long, block: suspend CoroutineScope.() -> Any): T {
-        return withContext(dispatchers.io) {
-            withTimeout(timeoutInMillis, block)
+    suspend fun <T> onNetworkWithTimeOut(
+        url: String,
+        timeoutInMillis: Long,
+        block: suspend CoroutineScope.() -> Any
+    ): T {
+        return withTimeout(timeoutInMillis) {
+            withContext(dispatchers.io, block)
         } as T
+
 
     }
 
 
-    suspend fun <T> onNetworkWithoutTimeOut(block: suspend CoroutineScope.() -> Any): T {
-        return withContext(dispatchers.io) {
-            block
-        } as T
+    suspend fun <T> onNetworkWithoutTimeOut(url: String, block: suspend CoroutineScope.() -> Any): T {
+        return withContext(dispatchers.io, block) as T
 
     }
 }
