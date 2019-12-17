@@ -18,13 +18,20 @@ class UserPresentation(private val dispatchers: AppDispatchers) :
 
     override val coroutineContext: CoroutineContext
         get() = dispatcher.main + job
-    
+
     val githubApiClient = GithubApiClientImpl(dispatchers)
 
     fun fetchUsersWithoutTimeout(handler: (User) -> Unit) {
         launch {
             val user = githubApiClient.fetchUserWithoutTimeout()
             handler.invoke(user)
+        }
+    }
+
+    fun fetchUsersAsyncWithoutTimeout(handler: (User) -> Unit) {
+        launch {
+            val user = async { githubApiClient.fetchUserWithoutTimeout() }
+            handler.invoke(user.await())
         }
     }
 

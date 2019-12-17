@@ -161,6 +161,7 @@ __attribute__((swift_name("UserPresentation")))
 @interface Kotlin_multiplat_platform_exampleUserPresentation : KotlinBase <Kotlin_multiplat_platform_exampleKotlinx_coroutines_coreCoroutineScope>
 - (instancetype)initWithDispatchers:(id<Kotlin_multiplat_platform_exampleAppDispatchers>)dispatchers __attribute__((swift_name("init(dispatchers:)"))) __attribute__((objc_designated_initializer));
 - (void)fetchUsersAsyncWithTimeOutTimeoutInMillis:(int64_t)timeoutInMillis handler:(void (^)(Kotlin_multiplat_platform_exampleUser *))handler __attribute__((swift_name("fetchUsersAsyncWithTimeOut(timeoutInMillis:handler:)")));
+- (void)fetchUsersAsyncWithoutTimeoutHandler:(void (^)(Kotlin_multiplat_platform_exampleUser *))handler __attribute__((swift_name("fetchUsersAsyncWithoutTimeout(handler:)")));
 - (void)fetchUsersWithTimeOutTimeoutInMillis:(int64_t)timeoutInMillis handler:(void (^)(Kotlin_multiplat_platform_exampleUser *))handler __attribute__((swift_name("fetchUsersWithTimeOut(timeoutInMillis:handler:)")));
 - (void)fetchUsersWithoutTimeoutHandler:(void (^)(Kotlin_multiplat_platform_exampleUser *))handler __attribute__((swift_name("fetchUsersWithoutTimeout(handler:)")));
 @property (readonly) id<Kotlin_multiplat_platform_exampleKotlinCoroutineContext> coroutineContext __attribute__((swift_name("coroutineContext")));
@@ -307,8 +308,7 @@ __attribute__((swift_name("Kotlinx_coroutines_coreCoroutineDispatcher")))
 - (void)dispatchYieldContext:(id<Kotlin_multiplat_platform_exampleKotlinCoroutineContext>)context block:(id<Kotlin_multiplat_platform_exampleKotlinx_coroutines_coreRunnable>)block __attribute__((swift_name("dispatchYield(context:block:)")));
 - (id<Kotlin_multiplat_platform_exampleKotlinContinuation>)interceptContinuationContinuation:(id<Kotlin_multiplat_platform_exampleKotlinContinuation>)continuation __attribute__((swift_name("interceptContinuation(continuation:)")));
 - (BOOL)isDispatchNeededContext:(id<Kotlin_multiplat_platform_exampleKotlinCoroutineContext>)context __attribute__((swift_name("isDispatchNeeded(context:)")));
-- (Kotlin_multiplat_platform_exampleKotlinx_coroutines_coreCoroutineDispatcher *)plusOther:(Kotlin_multiplat_platform_exampleKotlinx_coroutines_coreCoroutineDispatcher *)other __attribute__((swift_name("plus(other:)"))) __attribute__((unavailable("Operator '+' on two CoroutineDispatcher objects is meaningless. CoroutineDispatcher is a coroutine context element and `+` is a set-sum operator for coroutine contexts. The dispatcher to the right of `+` just replaces the dispatcher to the left.")));
-- (void)releaseInterceptedContinuationContinuation:(id<Kotlin_multiplat_platform_exampleKotlinContinuation>)continuation __attribute__((swift_name("releaseInterceptedContinuation(continuation:)")));
+- (Kotlin_multiplat_platform_exampleKotlinx_coroutines_coreCoroutineDispatcher *)plusOther:(Kotlin_multiplat_platform_exampleKotlinx_coroutines_coreCoroutineDispatcher *)other __attribute__((swift_name("plus(other:)"))) __attribute__((unavailable("Operator '+' on two CoroutineDispatcher objects is meaningless. CoroutineDispatcher is a coroutine context element and `+` is a set-sum operator for coroutine contexts. The dispatcher to the right of `+` just replaces the dispatcher the left of `+`.")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @end;
 

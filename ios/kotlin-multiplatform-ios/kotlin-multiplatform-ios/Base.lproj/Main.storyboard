@@ -31,7 +31,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSX-ft-AEv">
-                                <rect key="frame" x="137" y="433" width="141" height="30"/>
+                                <rect key="frame" x="137" y="382" width="141" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Api Call with timeout"/>
                                 <connections>
@@ -39,11 +39,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cy7-BB-xIJ">
-                                <rect key="frame" x="100" y="523" width="215" height="30"/>
+                                <rect key="frame" x="100" y="564" width="215" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Api Call with async and timeout"/>
                                 <connections>
                                     <action selector="buttonWithAsyncAndTimeOutClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qjh-6d-JpL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLE-Ez-Zka">
+                                <rect key="frame" x="72" y="457" width="270" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Api Call with async and without timeout"/>
+                                <connections>
+                                    <action selector="buttonWithAsyncAndWithoutTimeOutClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Seg-dk-AJi"/>
                                 </connections>
                             </button>
                         </subviews>
