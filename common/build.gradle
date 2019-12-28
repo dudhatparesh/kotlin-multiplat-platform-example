@@ -89,7 +89,12 @@ kotlin {
         }
         iosMain {
             dependencies {
-                implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-native:1.3.2-native-mt-1"
+                implementation('org.jetbrains.kotlinx:kotlinx-coroutines-core-native')
+                        {
+                            version {
+                                strictly '1.3.3-native-mt'
+                            }
+                        }
 
                 implementation "io.ktor:ktor-client-ios:${ktor_version}"
                 implementation "io.ktor:ktor-client-json-native:${ktor_version}"
