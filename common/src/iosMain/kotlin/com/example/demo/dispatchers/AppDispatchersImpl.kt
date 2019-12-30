@@ -66,7 +66,13 @@ actual class AppDispatchersImpl : AppDispatchers, CoroutineDispatcher(), Delay {
     }
 
     override fun dispatch(context: CoroutineContext, block: Runnable) {
-        
+        dispatch_async(dispatch_get_main_queue()) {
+            try {
+                block.run()
+            } catch (err: Throwable) {
+                throw err
+            }
+        }
     }
 
 }
