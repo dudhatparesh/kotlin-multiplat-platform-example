@@ -22,14 +22,14 @@ class UserPresentation(private val dispatchers: AppDispatchers) :
     val githubApiClient = GithubApiClientImpl(dispatchers)
 
     fun fetchUsersWithoutTimeout(handler: (User) -> Unit) {
-        launch {
+        launch(dispatchers.main) {
             val user = githubApiClient.fetchUserWithoutTimeout()
             handler.invoke(user)
         }
     }
 
     fun fetchUsersAsyncWithoutTimeout(handler: (User) -> Unit) {
-        launch {
+        launch(dispatchers.main) {
             val user = async { githubApiClient.fetchUserWithoutTimeout() }
             handler.invoke(user.await())
         }
@@ -37,7 +37,7 @@ class UserPresentation(private val dispatchers: AppDispatchers) :
 
 
     fun fetchUsersWithTimeOut(timeoutInMillis: Long, handler: (User) -> Unit) {
-        launch {
+        launch(dispatchers.main) {
             val user = githubApiClient.fetchUserWithTimeout(timeoutInMillis)
             handler.invoke(user)
         }
@@ -45,8 +45,8 @@ class UserPresentation(private val dispatchers: AppDispatchers) :
 
 
     fun fetchUsersAsyncWithTimeOut(timeoutInMillis: Long, handler: (User) -> Unit) {
-        launch {
-            val user = async { githubApiClient.fetchUserWithTimeout(timeoutInMillis) }
+        launch(dispatchers.main) {
+            val user = async(dispatchers.main) { githubApiClient.fetchUserWithTimeout(timeoutInMillis) }
             handler.invoke(user.await())
         }
     }
