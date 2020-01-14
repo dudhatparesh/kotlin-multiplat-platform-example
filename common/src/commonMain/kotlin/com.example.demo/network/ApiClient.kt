@@ -15,6 +15,7 @@ import io.ktor.client.features.logging.Logging
 import io.ktor.client.request.accept
 import io.ktor.http.ContentType
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
 import kotlinx.serialization.UnstableDefault
@@ -29,11 +30,25 @@ open class ApiClient(
         timeoutInMillis: Long,
         block: suspend CoroutineScope.() -> Any
     ): T {
-        return withTimeout(timeoutInMillis) {
-            withContext(dispatchers.io, block)
-        } as T
+        return coroutineScope {
+            withContext(dispatchers.io) {
+                block()
+               /*val result: String = fakeSuspendFunction()
+                print(result)*/
+            }
+            withTimeout(timeoutInMillis) {
+                block()
+            } as T
 
 
+        }
+
+
+    }
+
+    suspend inline fun <reified T> fakeSuspendFunction(): T {
+
+        return "Hello World" as T
     }
 
 
